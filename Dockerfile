@@ -6,7 +6,7 @@ RUN go get github.com/google/cadvisor && \
   cd /go/src/github.com/google/cadvisor && \
   make build
   
-FROM --platform=$BUILDPLATFORM debian
+FROM debian
 LABEL maintainer="Jay Ovalle <jay.ovalle@gmail.com>"
 COPY --from=build /go/src/github.com/google/cadvisor/cadvisor /usr/bin/cadvisor
 EXPOSE 8080
